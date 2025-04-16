@@ -25,23 +25,24 @@ O `CrudClientes.ApiService` é uma API RESTful desenvolvida em .NET 8 que permit
 ---
 
 ## 📂 Estrutura do Projeto
+```
 CrudClientes.ApiService/
-├── Controllers/ │
-└── ClientesController.cs   # Controlador principal da API
-├── Models/ │ 
-└── Cliente.cs  
-# Modelo de dados do cliente
-├── Repositories/ 
-│
-├── IClienteRepository.cs
-# Interface do repositório 
-│   └── ClienteRepository.cs    # Implementação do repositório
-├── Program.cs                  # Configuração principal da aplicação 
-└── Tests/
-└── ClientesControllerTests.cs # Testes automatizados do controlador
-
+ ├── Controllers/
+ │
+ └── ClientesController.cs # Controlador principal da API
+ ├── Models/
+ │
+ └── Cliente.cs # Modelo de dados do cliente
+ ├── Repositories/
+ │
+ ├── IClienteRepository.cs # Interface do repositório
+ │
+ └── ClienteRepository.cs # Implementação do repositório
+ ├── Program.cs # Configuração principal da aplicação
+ └── Tests/
+ └── ClientesControllerTests.cs # Testes automatizados do controlador 
 ---
-
+```
 ## ⚙️ Configuração e Execução
 
 ### Pré-requisitos
