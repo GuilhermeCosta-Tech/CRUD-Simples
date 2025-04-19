@@ -6,33 +6,33 @@ namespace CrudClientes.ApiService.Models
     // Classe com requisições obrigatórias para o cliente
     public class Cliente
     {
+        public int Id { get; set; } // Adicionando a propriedade Id para corrigir o erro CS1061
         [Required(ErrorMessage = "O nome é obrigatório.")]
         [StringLength(100, ErrorMessage = "O nome deve ter no máximo 100 caracteres.")]
-        public string Nome { get; set; } = string.Empty;
+        public string Nome { get; set; }
 
         [Required(ErrorMessage = "O email é obrigatório.")]
         [EmailAddress(ErrorMessage = "O email deve ser um endereço de email válido.")]
-        public string Email { get; set; } = string.Empty;
+        public string Email { get; set; }
 
         [Phone(ErrorMessage = "O telefone deve ser válido.")]
-        public string Telefone { get; set; } = string.Empty;
+        public string Telefone { get; set; }
 
         [Required(ErrorMessage = "O CPF é obrigatório.")]
         [StringLength(11, ErrorMessage = "O CPF deve ter 11 caracteres.")]
-        public string CPF { get; set; } = string.Empty;
+        public string CPF { get; set; }
 
         [Required]
-        public DateTime DataCriacao { get; set; } = DateTime.UtcNow;
+        public DateTime DataCriacao { get; set; }
 
         public DateTime? DataAtualizacao { get; set; }
 
         [Required]
-        public bool Ativo { get; set; } = true;
-        public int Id { get; internal set; }
+        public bool Ativo { get; set; }
 
         public bool ValidarCPF()
         {
-            if (string.IsNullOrWhiteSpace(CPF) || CPF.Length != 11 || !Regex.IsMatch(CPF, @"^\d{11}$"))
+            if (string.IsNullOrWhiteSpace(CPF) || CPF.Length != 11 || !CPF.All(char.IsDigit))
                 return false;
 
             var cpfNumeros = CPF.Select(c => int.Parse(c.ToString())).ToArray();
